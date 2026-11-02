@@ -1,0 +1,129 @@
+.gs.cart-dock {
+  --bg: #fff;
+  --ink: #111827;
+  --mute: #6b7280;
+  --line: #e5e7eb;
+  --red: #dc2626;
+  --org: var(--accent-strong);
+  --ph: #f3f4f6;
+}
+
+.gs aside {
+  position: sticky;
+  top: 60px;
+  align-self: start;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  border-left: 1px solid var(--line);
+  padding: 16px 14px;
+  text-align: center;
+}
+
+.gs aside .sub {
+  font: var(--t-title-section);
+}
+
+.gs .note {
+  margin: 10px 0;
+  background: #fdf3e7;
+  padding: 10px 12px;
+  text-align: left;
+  font: var(--t-body);
+}
+
+.gs .btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+  font: var(--t-body-strong);
+}
+
+.gs .btn.o {
+  border: 0;
+  background: var(--org);
+  color: #fff;
+}
+
+.gs .btn.l {
+  border: 1px solid var(--ink);
+  background: var(--bg);
+}
+
+.gs .btn.o.off {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.gs .sel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 10px;
+  text-align: left;
+  font: var(--t-body-strong);
+}
+
+.gs .ck {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  font: var(--t-badge);
+}
+
+.gs .ci {
+  margin-bottom: 14px;
+}
+
+.gs .ci .ph {
+  padding: 6px;
+}
+
+.gs .ci b {
+  display: block;
+  margin: 6px 0;
+  color: var(--red);
+}
+
+.gs .ci select {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.gs .ci .cn {
+  display: block;
+  margin-top: 6px;
+  font: var(--t-card-name);
+}
+
+.gs .rm {
+  display: block;
+  margin-top: 6px;
+  border: 0;
+  padding: 6px 0;
+  background: none;
+  color: var(--red);
+  cursor: pointer;
+  text-decoration: underline;
+  font: var(--t-button-small);
+}
+
+.gs .empty {
+  margin: 12px 0;
+  color: var(--mute);
+  font: var(--t-body);
+}
+
+.gs.cart-dock aside {
+  top: 100px;
+  height: calc(100vh - 100px);
+}

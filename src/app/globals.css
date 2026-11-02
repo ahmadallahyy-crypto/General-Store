@@ -1,0 +1,230 @@
+@import "./typography-tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: var(--font-ubuntu), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #ffffff;
+  --bg-strong: #f5f5f5;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-strong: #ffffff;
+  --text: #000000;
+  --muted: #737373;
+  --border: #e5e5e5;
+  --accent: #17b5c9;
+  --accent-strong: #087f8c;
+  --accent-stronger: #0b6e78;
+  --accent-soft: #e2f7f9;
+  --shadow: rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* The category bar collapses on scroll; anchoring would turn that resize into extra scroll events */
+  overflow-anchor: none;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  line-height: var(--lh-body);
+  background: #ffffff;
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  min-height: 100vh;
+}
+
+@media (min-width: 641px) {
+  .page-shell > main:not(:has(.gs)) {
+    padding-left: clamp(14px, calc(6.25vw - 26px), 48px);
+    padding-right: clamp(14px, calc(6.25vw - 26px), 48px);
+  }
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+@layer base {
+  h1 { font: var(--t-title-page); }
+  h2 { font: var(--t-title-section); }
+  h3 { font: var(--t-title-block); }
+  h4 { font: var(--t-card-name); }
+}
+
+h1, h2, h3, h4, p, li, span, a, button, input, select, textarea {
+  letter-spacing: -0.01em;
+}
+
+.serif-display {
+  font: var(--t-user);
+  letter-spacing: 0;
+}
+
+a, input, button {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(23, 181, 201, 0.2);
+}
+
+@keyframes carousel {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + 100vw)); }
+}
+
+@layer utilities {
+  .image-grid-gap {
+    gap: clamp(12px, 1.25vw, 18px);
+  }
+
+  .image-card-rail {
+    gap: 18px;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .t-10 { font: var(--t-10-400); }
+  .t-12 { font: var(--t-12-400); }
+  .t-14 { font: var(--t-14-400); }
+  .t-16 { font: var(--t-16-400); }
+  .t-20 { font: var(--t-20-400); }
+  .t-24 { font: var(--t-24-400); }
+  .t-32 { font: var(--t-32-400); }
+  .t-w-400 { font-weight: var(--fw-regular); }
+  .t-w-500 { font-weight: var(--fw-medium); }
+  .t-w-700 { font-weight: var(--fw-bold); }
+  .t-title-block { font: var(--t-title-block); }
+  .t-logo { font: var(--t-logo); }
+  .t-title-page { font: var(--t-title-page); }
+  .t-title-subcategory { font: var(--t-title-subcategory); }
+  .t-title-section { font: var(--t-title-section); }
+  .t-body { font: var(--t-body); }
+  .t-body-strong { font: var(--t-body-strong); }
+  .t-eyebrow { font: var(--t-eyebrow); }
+  .t-card-name { font: var(--t-card-name); }
+  .t-card-name-grid { font: var(--t-card-name-grid); }
+  .t-price-card { font: var(--t-price-card); }
+  .t-price-grid { font: var(--t-price-grid); }
+  .t-price-old { font: var(--t-price-old); }
+  .t-discount { font: var(--t-discount); }
+  .t-discount-small { font: var(--t-discount-small); }
+  .t-caption { font: var(--t-caption); }
+  .t-badge { font: var(--t-badge); }
+  .t-button-small { font: var(--t-button-small); }
+  .t-eyebrow-small { font: var(--t-eyebrow-small); }
+  .t-user { font: var(--t-user); }
+  .t-hero { font: var(--t-hero); }
+  .t-price-card, .t-price-grid, .t-price-old { font-variant-numeric: tabular-nums; }
+}
+
+.animate-carousel {
+  animation: carousel 36s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-carousel {
+    animation: none;
+  }
+}
+
+.nav-brand-wordmark {
+  display: none;
+}
+
+nav .nav-shell {
+  --nav-gutter: clamp(14px, calc(6.25vw - 26px), 48px);
+  max-width: none;
+  padding-left: var(--nav-gutter);
+  padding-right: var(--nav-gutter);
+}
+
+nav .nav-strip {
+  margin-left: calc(-1 * var(--nav-gutter));
+  margin-right: calc(-1 * var(--nav-gutter));
+}
+
+nav .nav-strip-in {
+  padding-left: var(--nav-gutter);
+  padding-right: var(--nav-gutter);
+}
+
+@media (min-width: 1101px) {
+  nav .nav-shell {
+    --nav-gutter: calc(24px + clamp(14px, calc(6.25vw - 26px), 48px));
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-brand-wordmark {
+    display: flex;
+  }
+}
+
+@media (max-width: 374px) {
+  .nav-row {
+    column-gap: 4px;
+  }
+
+  .nav-brand-actions,
+  .nav-actions {
+    gap: 0;
+  }
+
+  .nav-brand-actions .nav-narrow-menu {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-actions .nav-narrow-action {
+    width: 44px;
+    min-width: 44px;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .nav-actions .nav-narrow-secondary {
+    display: none;
+  }
+}

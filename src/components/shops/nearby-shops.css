@@ -1,0 +1,61 @@
+.seller-photo-grid.nearby-shop-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nearby-shop-grid .seller-photo-card__banner {
+  aspect-ratio: 2.15 / 1;
+}
+
+.nearby-shop-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nearby-shop-card__tags .tag {
+  padding: 3px 8px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font: var(--t-caption);
+}
+
+.nearby-shop-card__tags .tag.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.nearby-shop-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+}
+
+.nearby-shop-card__actions a {
+  color: #087f8c;
+  font: var(--t-14-700);
+}
+
+.nearby-shop-card__actions a:hover {
+  text-decoration: underline;
+}
+
+.nearby-shop-open {
+  color: #bbf7d0 !important;
+}
+
+.nearby-shop-closed {
+  color: #fde68a !important;
+}
+
+@media (min-width: 1101px) {
+  .seller-photo-grid.nearby-shop-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .seller-photo-grid.nearby-shop-grid {
+    grid-template-columns: 1fr;
+  }
+}

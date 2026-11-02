@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-05T00:00:00.000Z",
+  "title": "Design System: Acme Store",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Commerce Blue",
+        "canonical": "#2563eb",
+        "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Commerce Blue Deep",
+        "canonical": "#1d4ed8",
+        "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"]
+      },
+      "neutral-background": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fafafa",
+        "tonalRamp": ["#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5", "#fafafa"]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Surface White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5", "#ffffff"]
+      },
+      "neutral-text": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#fafafa"]
+      },
+      "neutral-subtle-text": {
+        "role": "neutral",
+        "displayName": "Muted Neutral",
+        "canonical": "#737373",
+        "tonalRamp": ["#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#f5f5f5", "#fafafa"]
+      },
+      "neutral-border": {
+        "role": "neutral",
+        "displayName": "Hairline Neutral",
+        "canonical": "#e5e5e5",
+        "tonalRamp": ["#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#e5e5e5", "#fafafa"]
+      },
+      "neutral-dark-background": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#171717",
+        "tonalRamp": ["#000000", "#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#fafafa"]
+      },
+      "neutral-dark-surface": {
+        "role": "neutral",
+        "displayName": "Night Surface",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#fafafa"]
+      },
+      "neutral-dark-border": {
+        "role": "neutral",
+        "displayName": "Night Border",
+        "canonical": "#262626",
+        "tonalRamp": ["#000000", "#171717", "#262626", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#fafafa"]
+      },
+      "success-soft": {
+        "role": "tertiary",
+        "displayName": "Success Soft",
+        "canonical": "#dcfce7",
+        "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#16a34a", "#4ade80", "#86efac", "#dcfce7"]
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Success",
+        "canonical": "#16a34a",
+        "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#16a34a", "#4ade80", "#86efac", "#dcfce7"]
+      },
+      "danger": {
+        "role": "tertiary",
+        "displayName": "Danger",
+        "canonical": "#dc2626",
+        "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#fca5a5", "#fee2e2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Compact Display", "purpose": "Page titles and prominent empty or success states." },
+      "body": { "displayName": "Inter Body", "purpose": "Navigation, product metadata, form values, and supporting copy." },
+      "label": { "displayName": "Compact Label", "purpose": "Product labels, prices, and compact UI metadata." }
+    },
+    "shadows": [
+      { "name": "cart-drawer", "value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)", "purpose": "Lift the fixed cart drawer above the scrimmed page." },
+      { "name": "gallery-control", "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "purpose": "Give gallery navigation slight separation from the image." }
+    ],
+    "motion": [
+      { "name": "state-transition", "value": "300ms ease-in-out", "purpose": "Product image hover scale and primary action color changes." },
+      { "name": "carousel-loop", "value": "50s linear infinite", "purpose": "Continuous horizontal product carousel motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "wide-footer", "value": "1320px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Blue pill action used for adding to cart, checkout, and continuing shopping.",
+      "html": "<button class=\"ds-btn-primary\">Add To Cart</button>",
+      "css": ".ds-btn-primary { background: #2563eb; color: #fff; border: 0; border-radius: 9999px; padding: 14px 16px; font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; transition: background-color 300ms ease-in-out; } .ds-btn-primary:hover { background: #1d4ed8; } .ds-btn-primary:focus-visible { outline: 2px solid #a3a3a3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Compact bordered search field used in the desktop navigation.",
+      "html": "<input class=\"ds-input-search\" type=\"search\" placeholder=\"Search for products...\" />",
+      "css": ".ds-input-search { width: 100%; background: #fff; color: #000; border: 1px solid #e5e5e5; border-radius: 8px; padding: 8px 16px; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; } .ds-input-search::placeholder { color: #737373; } .ds-input-search:focus-visible { outline: 2px solid #a3a3a3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Product Tile",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Square product image frame with a floating title and price label.",
+      "html": "<a class=\"ds-product-tile\"><div class=\"ds-product-image\"></div><div class=\"ds-product-label\"><span>Product title</span><strong>$24.00 USD</strong></div></a>",
+      "css": ".ds-product-tile { position: relative; display: block; aspect-ratio: 1; overflow: hidden; background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; } .ds-product-tile:hover { border-color: #2563eb; } .ds-product-image { position: absolute; inset: 0; background: #fff; } .ds-product-label { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px; border: 1px solid #e5e5e5; border-radius: 9999px; background: rgb(255 255 255 / 0.7); color: #000; font: 600 0.75rem/1rem Inter, system-ui, sans-serif; backdrop-filter: blur(12px); } .ds-product-label strong { flex: none; padding: 8px; border-radius: 9999px; background: #2563eb; color: #fff; font-weight: 600; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "input-text",
+      "description": "Three-part storefront header with logo, category links, search, and cart control.",
+      "html": "<nav class=\"ds-nav\"><strong class=\"ds-logo\">▲ ACME STORE</strong><span class=\"ds-nav-links\">All&nbsp;&nbsp; Shirts&nbsp;&nbsp; Stickers</span><button class=\"ds-cart-button\" aria-label=\"Open cart\">Cart</button></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 16px; color: #000; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; } .ds-logo { display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 500; text-transform: uppercase; } .ds-nav-links { color: #737373; } .ds-cart-button { position: relative; width: 44px; height: 44px; border: 1px solid #e5e5e5; border-radius: 6px; background: #fff; color: #000; } .ds-cart-button:hover { background: #fafafa; } .ds-cart-button:focus-visible { outline: 2px solid #a3a3a3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Cart Drawer",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Full-height cart panel with a scrim, scrollable items, and checkout action.",
+      "html": "<aside class=\"ds-cart-drawer\"><header>My Cart</header><div class=\"ds-cart-body\">Your cart is empty.</div><button class=\"ds-btn-primary\">Proceed to Checkout</button></aside>",
+      "css": ".ds-cart-drawer { width: min(100%, 448px); height: 100%; background: #fff; color: #000; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); } .ds-cart-drawer header { padding: 16px 24px; border-bottom: 1px solid #e5e5e5; font: 600 1.125rem/1.75rem Inter, system-ui, sans-serif; } .ds-cart-body { padding: 16px 24px; color: #737373; } .ds-cart-drawer .ds-btn-primary { width: calc(100% - 48px); margin: 16px 24px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Commerce Counter",
+    "overview": "Acme Store follows the restrained, reference-faithful language of Vercel Commerce: product imagery does the visual speaking while the interface stays crisp, neutral, and easy to scan. Inter typography, generous white space, thin neutral borders, and a single blue action color keep discovery and purchase steps legible without adding decorative layers.\n\nThe system is functional and lightly tactile. Images sit inside stable square frames, labels float over imagery, and controls become more distinct through border, color, and focus-state changes rather than heavy ornament. Light mode uses a near-white paper ground; dark mode inverts the same neutral structure with black surfaces and charcoal borders.",
+    "keyCharacteristics": ["Neutral-first storefront with one blue action accent.", "Square, bordered product presentation with full-image visibility.", "Rounded controls and compact sans-serif hierarchy.", "Flat surfaces by default; elevation is reserved for the cart panel."],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Blue carries action, selection, and price emphasis; neutral tones carry structure and supporting information.", "section": "colors" },
+      { "name": "The Compact Hierarchy Rule", "body": "Keep storefront text small and scannable; use weight and contrast to distinguish actions from metadata rather than oversized headings.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Use borders and tonal surfaces for ordinary hierarchy; reserve a shadow for a surface that must float above the page.", "section": "elevation" }
+    ],
+    "dos": ["Do keep product imagery inside square, bordered frames and use `object-contain` when the complete image must remain visible.", "Do use Commerce Blue for actions, selection, hover emphasis, and price pills rather than introducing extra accent colors.", "Do preserve the 4px spacing rhythm and the 8px/12px/16px radius progression evidenced by the components.", "Do retain visible focus treatment on links, inputs, and buttons.", "Do keep light and dark surfaces structurally parallel: near-white/white in light mode and near-black/black in dark mode."],
+    "donts": ["Don't crop or distort catalog imagery to fill a tile.", "Don't add decorative shadows to ordinary cards or page sections; depth is intentionally restrained.", "Don't replace compact Inter hierarchy with display typography or oversized marketing headlines.", "Don't introduce a second dominant accent without a product-level reason; the existing system is neutral-first and blue-led.", "Don't turn a product label into layout content; it floats over the image and must not shift the tile geometry."]
+  }
+}

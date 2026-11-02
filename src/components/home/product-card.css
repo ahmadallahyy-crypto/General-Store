@@ -1,0 +1,173 @@
+.gs {
+  --bg: #fff;
+  --ink: #111827;
+  --mute: #6b7280;
+  --line: #e5e7eb;
+  --red: #dc2626;
+  --org: var(--accent-strong);
+  --ph: #f3f4f6;
+  background: var(--bg);
+  color: var(--ink);
+  position: relative;
+  font: var(--t-body);
+}
+
+.gs .card {
+  display: block;
+  min-width: 0;
+}
+
+.gs .ph {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  color: var(--mute);
+  background: var(--ph);
+  font: var(--t-body);
+}
+
+.gs .ph-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.gs .ph img {
+  object-fit: cover;
+}
+
+.gs .fav,
+.gs .add {
+  position: absolute;
+  top: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 2px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  background-clip: content-box;
+  color: var(--ink);
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font: var(--t-20-400);
+  transition: opacity 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gs .fav,
+  .gs .add {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gs .ph:hover .fav,
+  .gs .ph:hover .add,
+  .gs .ph:focus-within .fav,
+  .gs .ph:focus-within .add {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.gs .fav {
+  right: 8px;
+}
+
+.gs .fav[aria-pressed="true"],
+.gs .add {
+  color: var(--red);
+}
+
+.gs .add {
+  left: 8px;
+  font: var(--t-title-block);
+}
+
+.gs .pill {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 10px;
+  max-width: calc(100% - 12px);
+  overflow: hidden;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.85);
+  color: #fff;
+  padding: 5px 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  font: var(--t-body);
+}
+
+.gs .pr {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.gs .pr b {
+  color: var(--red);
+  font: var(--t-price-card);
+}
+
+.gs .pr s {
+  color: var(--mute);
+  font: var(--t-price-old);
+}
+
+.gs .pr span {
+  color: var(--mute);
+  font: var(--t-discount-small);
+}
+
+.gs .st {
+  margin-top: 4px;
+  letter-spacing: 1px;
+  font: var(--t-16-400);
+}
+
+.gs .st small {
+  margin-left: 4px;
+  color: var(--mute);
+  letter-spacing: 0;
+  font: var(--t-caption);
+}
+
+.gs .nm {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font: var(--t-card-name-grid);
+}
+
+.gs .bar {
+  height: 6px;
+  margin-top: 6px;
+  background: var(--line);
+}
+
+.gs .bar i {
+  display: block;
+  height: 100%;
+  background: var(--org);
+}
+
+@media (max-width: 640px) {
+  .gs .pr b {
+    font: var(--t-price-card);
+  }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Product page - merged Jumia + Temu design</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import url("./src/app/typography-tokens.css");
+
+:root{--bg:#f4f4f5;--card:#fff;--ink:#222;--mute:#6b6b70;--line:#e4e4e7;--brand:#f68b1e;--bi:#1d1100;--tint:#fff3e3;--ph:#ececee;--red:#c7191f;--grn:#0a7a4b;--gbg:#e3f5ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141415;--card:#222224;--ink:#f2f2f2;--mute:#a4a4aa;--line:#3a3a3e;--brand:#f79a3a;--tint:#3a2a17;--ph:#2d2d30;--red:#ff7a7e;--grn:#6fd3a5;--gbg:#173a2a}}
+:root[data-theme="dark"]{--bg:#141415;--card:#222224;--ink:#f2f2f2;--mute:#a4a4aa;--line:#3a3a3e;--brand:#f79a3a;--tint:#3a2a17;--ph:#2d2d30;--red:#ff7a7e;--grn:#6fd3a5;--gbg:#173a2a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 110px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:var(--t-body)}
+a{color:inherit;text-decoration:none}button,select,input{font:inherit;color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 14px}
+.ship{background:#000;color:#7be0a8;font:var(--t-14-500)}.ship .wrap{display:flex;gap:24px;justify-content:center;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+header{background:var(--card);position:sticky;top:env(safe-area-inset-top,0px);z-index:8;border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:16px;padding:10px 0}.logo{color:var(--brand);font:var(--t-logo)}
+.sr{flex:1;display:flex;border:2px solid var(--brand);border-radius:24px;overflow:hidden;background:var(--card)}.sr input{flex:1;min-width:0;border:0;background:transparent;padding:9px 16px;outline:none}.sr button{border:0;background:var(--brand);color:var(--bi);padding:0 20px;cursor:pointer;font:var(--t-body-strong)}
+.ct{position:relative;cursor:pointer;background:none;border:0;font:var(--t-user)}.ct b{position:absolute;top:-8px;right:-14px;background:var(--red);color:#fff;border-radius:10px;padding:0 6px;font:var(--t-badge)}
+.crumb{color:var(--mute);padding:12px 0;font:var(--t-caption)}.crumb a:hover{color:var(--brand)}
+.pdp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) 330px;gap:16px;align-items:start}
+.card{background:var(--card);border-radius:10px;padding:16px}
+.gal{display:grid;grid-template-columns:64px 1fr;gap:10px}
+.th{display:flex;flex-direction:column;gap:8px}.th button{aspect-ratio:1;border:2px solid transparent;border-radius:6px;background:var(--ph);cursor:pointer;color:var(--mute);padding:0;font:var(--t-button-small)}.th button.on{border-color:var(--brand)}
+.main{position:relative;aspect-ratio:1;background:var(--ph);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--mute)}
+.tags{position:absolute;top:10px;left:10px;display:flex;gap:6px}.tag{background:var(--brand);color:var(--bi);padding:2px 8px;border-radius:4px;font:var(--t-badge)}.tag.g{background:var(--gbg);color:var(--grn)}
+.wish{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:var(--card);cursor:pointer;font:var(--t-16-400)}
+h1{line-height:1.3;margin:0 0 6px;font:var(--t-title-page)}
+.mt{display:flex;gap:10px;align-items:center;color:var(--mute);flex-wrap:wrap;font:var(--t-caption)}.st{color:var(--brand);letter-spacing:1px}
+.pb{background:var(--tint);border-radius:8px;padding:12px 14px;margin:12px 0}
+.pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.pr b{color:var(--red);font:var(--t-24-700)}.pr s{color:var(--mute);font:var(--t-price-old)}.pr span{background:var(--red);color:#fff;padding:1px 7px;border-radius:4px;font:var(--t-discount-small)}
+.fl{display:flex;justify-content:space-between;margin-top:6px;font:var(--t-body)}.fl .t{font-variant-numeric:tabular-nums;color:var(--red);font:var(--t-14-700)}
+.bar{height:6px;background:var(--line);border-radius:3px;margin-top:6px}.bar i{display:block;height:100%;width:72%;background:var(--brand);border-radius:3px}
+.lb{margin:14px 0 6px;display:flex;justify-content:space-between;font:var(--t-body-strong)}.lb span{color:var(--mute);font:var(--t-body)}
+.opts{display:flex;gap:8px;flex-wrap:wrap}.opt{border:1.5px solid var(--line);background:var(--card);border-radius:8px;padding:8px 14px;cursor:pointer;min-width:52px;text-align:center}.opt.on{border-color:var(--brand);background:var(--tint);font:var(--t-body-strong)}.opt:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.sw{width:34px;height:34px;border-radius:50%;padding:0;min-width:0;border-width:2px}.sw.on{outline:2px solid var(--brand);outline-offset:2px}
+.perks{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}.perks li{display:flex;gap:8px;font:var(--t-body)}.perks li:before{content:"\2713";color:var(--grn);font:var(--t-14-700)}
+.buy{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px)}
+.buy .tot{color:var(--red);font:var(--t-24-700)}.buy small{color:var(--mute);font:var(--t-caption)}
+.qty{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}.qty button{width:34px;height:34px;border:0;background:var(--card);cursor:pointer;font:var(--t-body-strong)}.qty span{min-width:38px;text-align:center;line-height:34px}
+.dm{display:grid;gap:8px;margin:8px 0}.dm label{display:flex;gap:10px;border:1.5px solid var(--line);border-radius:8px;padding:10px;cursor:pointer;align-items:flex-start}.dm label.on{border-color:var(--brand);background:var(--tint)}.dm input{margin-top:3px;accent-color:var(--brand)}
+.dm b{display:block;font:var(--t-body-strong)}.dm span{color:var(--mute);font:var(--t-caption)}
+select{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.btn{display:block;width:100%;border-radius:28px;padding:13px;margin-top:10px;cursor:pointer;border:0;font:var(--t-body-strong)}.btn.p{background:var(--brand);color:var(--bi)}.btn.s{background:var(--card);border:1.5px solid var(--ink)}
+.trust{display:grid;gap:8px;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;font:var(--t-body)}.trust div{display:flex;gap:8px}.trust i{font-style:normal;color:var(--grn);font:var(--t-14-700)}
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:6;background:var(--card);border-radius:10px;margin:16px 0 0;display:flex;gap:4px;padding:0 8px;overflow-x:auto;border-bottom:1px solid var(--line)}
+.tabs a{padding:14px 16px;color:var(--mute);white-space:nowrap;border-bottom:3px solid transparent;font:var(--t-body-strong)}.tabs a.on{color:var(--ink);border-bottom-color:var(--brand)}
+.sec{margin-top:12px}.sec h2{margin:0 0 10px;font:var(--t-title-section)}
+.spec{display:grid;grid-template-columns:200px 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden}.spec div{padding:9px 12px;border-bottom:1px solid var(--line)}.spec div:nth-child(odd){background:var(--bg);color:var(--mute)}
+.rv{display:grid;grid-template-columns:200px 1fr;gap:24px}.rv .big{font:var(--t-hero)}
+.rb{display:grid;grid-template-columns:30px 1fr 36px;gap:8px;align-items:center;margin:5px 0;font:var(--t-caption)}.rb i{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.rb i b{display:block;height:100%;background:var(--brand)}
+.cm{border-top:1px solid var(--line);padding:12px 0}.cm small{color:var(--mute)}
+.shd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.shd h2{margin:0;font:var(--t-title-section)}.shd a,.shd button{color:var(--brand);background:none;border:0;cursor:pointer;padding:0;font:var(--t-body-strong)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 56px)/5);gap:14px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}.rail::-webkit-scrollbar{display:none}
+.pc{scroll-snap-align:start;display:flex;flex-direction:column;gap:3px;min-width:0}.pc .im{position:relative;aspect-ratio:1;background:var(--ph);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--mute);font:var(--t-body)}
+.pc .im em{position:absolute;top:6px;left:6px;font-style:normal;background:var(--red);color:#fff;padding:1px 6px;border-radius:3px;font:var(--t-badge)}
+.pc .n{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px;margin-top:4px;font:var(--t-card-name)}.pc b{color:var(--red);font:var(--t-price-card)}.pc s{color:var(--mute);margin-left:4px;font:var(--t-caption)}.pc .rt{color:var(--mute);font:var(--t-caption)}.pc .rt i{color:var(--brand);font-style:normal}
+.nv{color:var(--mute);padding:14px 0}
+.mbar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:none;gap:10px;align-items:center;z-index:9}
+.mbar .tot{color:var(--red);font:var(--t-20-700)}.mbar .btn{margin:0;padding:11px;flex:1}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#000;color:#fff;border-radius:24px;padding:10px 20px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;font:var(--t-body-strong)}.toast.on{opacity:1}
+footer{margin-top:24px;background:var(--card);border-top:1px solid var(--line);padding:18px 0;color:var(--mute);text-align:center;font:var(--t-caption)}
+@media (max-width:1100px){.pdp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.buy{position:static;grid-column:1/-1}}
+@media (max-width:760px){.pdp{grid-template-columns:1fr}.gal{grid-template-columns:1fr}.th{flex-direction:row;order:2}.th button{width:56px}.mbar{display:flex}.rv,.spec{grid-template-columns:1fr}.rail{grid-auto-columns:46%}body{padding-bottom:70px}.tabs{top:calc(env(safe-area-inset-top,0px) + 56px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="ship"><div class="wrap"><span>Free shipping over &#8358;25,000</span><span>Price adjustment within 30 days</span><span>7-day free returns</span></div></div>
+<header><div class="wrap hd"><a class="logo" href="#">shopa</a><form class="sr" onsubmit="return false"><input type="search" placeholder="Search products, brands and categories" aria-label="Search"><button type="button">Search</button></form><button class="ct" type="button" aria-label="Cart">Cart<b id="cc">0</b></button></div></header>
+
+<main class="wrap">
+<nav class="crumb" aria-label="Breadcrumb"><a href="#">Home</a> &rsaquo; <a href="#">Fashion</a> &rsaquo; <a href="#">Men's shoes</a> &rsaquo; Business shoes</nav>
+
+<div class="pdp">
+<section class="card gal" aria-label="Gallery">
+<div class="th" id="th"></div>
+<div class="main" id="main">Image 1<div class="tags"><span class="tag">Official store</span><span class="tag g">Free shipping</span></div><button class="wish" type="button" aria-label="Add to wishlist" id="wish">&#9825;</button></div>
+</section>
+
+<section class="card" aria-label="Product info">
+<h1>Men's comfortable, durable business shoes. Versatile casual leather lace-ups</h1>
+<div class="mt"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9734;</span><a href="#feedback">4.2 (188 verified ratings)</a><span>|</span><span>3.2K+ sold</span><span>|</span><a href="#">More from Brand X</a></div>
+<div class="pb"><div class="pr"><b id="pp">&#8358;28,599</b><s>&#8358;34,048</s><span>-16%</span></div>
+<div class="fl"><span>Flash sale ends in</span><span class="t" id="tm">00:00:00</span></div>
+<div class="bar" aria-hidden="true"><i></i></div><div class="fl"><span style="color:var(--red)">Only 9 left in stock</span><span>72% sold</span></div></div>
+<div class="lb">Colour: <span id="cn">Black</span></div>
+<div class="opts" id="col"></div>
+<div class="lb">Size (EU) <span><a href="#" style="text-decoration:underline">Size guide</a></span></div>
+<div class="opts" id="siz"></div>
+<ul class="perks"><li>Pay on delivery in most cities, or pay by card or transfer</li><li>Return within 7 days, free for eligible items</li><li>Cheaper delivery when you pick up at a station</li><li>Price adjustment within 30 days if the price drops</li></ul>
+</section>
+
+<aside class="card buy" aria-label="Buy box">
+<div class="tot" id="tot">&#8358;29,599</div><small>Item plus delivery. <span id="sv"></span></small>
+<div class="lb">Deliver to</div>
+<select id="loc" aria-label="Delivery area"><option value="1000|1600">Lagos - Lekki-Ajah (Sangotedo)</option><option value="1200|2000">Abuja (FCT) - Wuse</option><option value="1500|2400">Kano - Nassarawa</option><option value="1300|2200">Rivers - Port Harcourt</option></select>
+<div class="dm" id="dm">
+<label class="on"><input type="radio" name="dl" value="pick" checked><div><b>Pickup station <span id="fp" style="float:right"></span></b><span id="dp"></span></div></label>
+<label><input type="radio" name="dl" value="door"><div><b>Door delivery <span id="fd" style="float:right"></span></b><span id="dd"></span></div></label></div>
+<small>Order within <b id="cut" style="color:var(--red)">2h 57m</b> for the earliest date.</small>
+<div class="lb">Quantity <div class="qty"><button type="button" id="mn" aria-label="Less">&minus;</button><span id="q">1</span><button type="button" id="pl" aria-label="More">+</button></div></div>
+<button class="btn p" type="button" id="buy">Buy now</button>
+<button class="btn s" type="button" id="add">Add to cart</button>
+<div class="trust"><div><i>&#10003;</i><span>Seller: Brand X official store, 100% seller score</span></div><div><i>&#10003;</i><span>Secure payment. Pay on delivery available</span></div><div><i>&#10003;</i><span>Questions? <a href="#" style="text-decoration:underline">Chat with us</a> or call 02018883300</span></div></div>
+</aside>
+</div>
+
+<nav class="tabs" id="tabs" aria-label="Sections"><a class="on" href="#details">Product details</a><a href="#specs">Specifications</a><a href="#feedback">Verified feedback</a><a href="#related">Related products</a><a href="#recent">Recently viewed</a></nav>
+<section class="card sec" id="details"><h2>Product details</h2><p>Built for all-day comfort with a cushioned insole, a flexible non-slip sole and durable stitching. Smart enough for the office, relaxed enough for the weekend.</p><ul class="perks"><li>Breathable lining and soft padded collar</li><li>Non-slip rubber outsole</li><li>Lace-up fastening for a secure fit</li></ul></section>
+<section class="card sec" id="specs"><h2>Specifications</h2><div class="spec"><div>SKU</div><div>SH-BX-0042</div><div>Material</div><div>PU leather, rubber sole</div><div>Closure</div><div>Lace-up</div><div>Weight</div><div>0.9 kg</div><div>Shop type</div><div>Official store</div></div></section>
+<section class="card sec" id="feedback"><h2>Verified customer feedback</h2><div class="rv"><div><div class="big">4.2<small style="font:var(--t-body)">/5</small></div><div class="st">&#9733;&#9733;&#9733;&#9733;&#9734;</div><small>188 verified ratings</small></div><div>
+<div class="rb"><span>5</span><i><b style="width:61%"></b></i><span>115</span></div><div class="rb"><span>4</span><i><b style="width:18%"></b></i><span>33</span></div><div class="rb"><span>3</span><i><b style="width:11%"></b></i><span>20</span></div><div class="rb"><span>2</span><i><b style="width:3%"></b></i><span>6</span></div><div class="rb"><span>1</span><i><b style="width:7%"></b></i><span>14</span></div></div></div>
+<div class="cm"><b>Great fit</b><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Comfortable from the first day.<br><small>25-02-2025 by Samson. Verified purchase</small></div>
+<div class="cm"><b>Good value</b><div class="st">&#9733;&#9733;&#9733;&#9733;&#9734;</div>Looks better than the price suggests.<br><small>04-11-2024 by Bolly. Verified purchase</small></div></section>
+<section class="card sec" id="related"><div class="shd"><h2>Related products</h2><a href="#">See all</a></div><div class="rail" id="rel"></div></section>
+<section class="card sec" id="recent"><div class="shd"><h2>Recently viewed</h2><button type="button" id="clr">Clear all</button></div><div class="rail" id="rv"></div></section>
+</main>
+
+<div class="mbar"><div><div class="tot" id="mt">&#8358;29,599</div><small style="color:var(--mute)">with delivery</small></div><button class="btn s" type="button" id="add2">Add</button><button class="btn p" type="button" id="buy2">Buy now</button></div>
+<div class="toast" id="toast" role="status"></div>
+<footer><div class="wrap">Layout study. Sample product and prices. Not a real store.</div></footer>
+
+<script>
+var $=function(i){return document.getElementById(i)},fm=function(n){return "\u20A6"+n.toLocaleString("en-NG")};
+var price=28599,qty=1,fees=[1000,1600],mode="pick",cart=0;
+var cols=[["Black","#222"],["Brown","#7a4a21"],["Tan","#c49a6c"]],sizes=[39,40,41,42,43,44,45],out={45:1};
+cols.forEach(function(c,i){var b=document.createElement("button");b.type="button";b.className="opt sw"+(i?"":" on");b.style.background=c[1];b.setAttribute("aria-label",c[0]);b.onclick=function(){document.querySelectorAll("#col .opt").forEach(function(x){x.classList.remove("on")});b.classList.add("on");$("cn").textContent=c[0]};$("col").appendChild(b)});
+var size=null;sizes.forEach(function(s){var b=document.createElement("button");b.type="button";b.className="opt";b.textContent=s;if(out[s])b.disabled=true;b.onclick=function(){document.querySelectorAll("#siz .opt").forEach(function(x){x.classList.remove("on")});b.classList.add("on");size=s};$("siz").appendChild(b)});
+for(var i=1;i<=5;i++){var t=document.createElement("button");t.type="button";t.textContent="Img "+i;t.setAttribute("aria-label","Image "+i);if(i==1)t.className="on";(function(n,t){t.onclick=function(){document.querySelectorAll("#th button").forEach(function(x){x.classList.remove("on")});t.classList.add("on");$("main").firstChild.nodeValue="Image "+n}})(i,t);$("th").appendChild(t)}
+var REL=[["Leather loafers",16500,21000,4.5,820],["Casual sneakers",14200,19800,4.3,1500],["Formal oxford shoes",24900,31000,4.6,430],["Chelsea boots",27500,35900,4.4,310],["Canvas slip-ons",9800,13500,4.1,2100],["Suede driving shoes",19500,26000,4.5,260]];
+var SEED=[["Men's leather belt",6500,9000,4.4,980],["Dress socks 5-pack",3200,4800,4.2,3400],["Shoe cleaning kit",2400,3600,4.0,760],["Leather wallet",8900,12500,4.6,540]];
+var CUR={n:"Men's comfortable business shoes",p:28599,o:34048,r:4.2,s:3200};
+function pc(x){var d=x[2]?Math.round((x[2]-x[1])/x[2]*100):0;return '<a class="pc" href="#"><div class="im">Image'+(d?'<em>-'+d+'%</em>':'')+'</div><div class="n">'+x[0]+'</div><div><b>'+fm(x[1])+'</b>'+(x[2]?'<s>'+fm(x[2])+'</s>':'')+'</div><div class="rt"><i>\u2605</i> '+x[3]+' &middot; '+x[4].toLocaleString("en-NG")+'+ sold</div></a>'}
+$("rel").innerHTML=REL.map(pc).join("");
+var rv=[];try{rv=JSON.parse(localStorage.getItem("rv")||"null")}catch(e){}
+if(!rv||!rv.length)rv=SEED;
+function drawRv(){var sec=$("rv");sec.innerHTML=rv.length?rv.map(pc).join(""):'<p class="nv">Nothing viewed yet. Products you look at will show up here.</p>';sec.style.display=rv.length?"":"grid";$("clr").style.display=rv.length?"":"none"}
+drawRv();
+$("clr").onclick=function(){rv=[];try{localStorage.setItem("rv","[]")}catch(e){}drawRv()};
+try{var saved=JSON.parse(localStorage.getItem("rv")||"null")||SEED.slice(),me=[CUR.n,CUR.p,CUR.o,CUR.r,CUR.s];saved=saved.filter(function(x){return x[0]!==me[0]});saved.unshift(me);localStorage.setItem("rv",JSON.stringify(saved.slice(0,10)))}catch(e){}
+function calc(){var f=fees[mode=="pick"?0:1],sub=price*qty,t=sub+f;
+$("tot").textContent=fm(t);$("mt").textContent=fm(t);$("q").textContent=qty;$("fp").textContent=fm(fees[0]);$("fd").textContent=fm(fees[1]);
+$("sv").textContent=mode=="door"?"Pick up to save "+fm(fees[1]-fees[0])+".":"Best delivery price selected."}
+function dates(){var d=new Date(),f=function(n){var x=new Date(d.getTime()+n*864e5);return x.toLocaleDateString("en-GB",{day:"numeric",month:"short"})};
+$("dp").textContent="Ready for pickup "+f(3)+" to "+f(4);$("dd").textContent="Delivered "+f(3)+" to "+f(4)}
+dates();calc();
+$("loc").onchange=function(){fees=this.value.split("|").map(Number);calc()};
+document.querySelectorAll("#dm input").forEach(function(r){r.onchange=function(){mode=r.value;document.querySelectorAll("#dm label").forEach(function(l){l.classList.toggle("on",l.firstChild.checked)});calc()}});
+$("mn").onclick=function(){qty=Math.max(1,qty-1);calc()};$("pl").onclick=function(){qty=Math.min(9,qty+1);calc()};
+var tt;function toast(m){var e=$("toast");e.textContent=m;e.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){e.classList.remove("on")},2200)}
+function need(){if(!size){toast("Choose a size first");$("siz").scrollIntoView({block:"center"});return 1}}
+function add(){if(need())return;cart+=qty;$("cc").textContent=cart;toast("Added to cart")}
+function buy(){if(need())return;toast("Going to checkout: "+$("tot").textContent)}
+$("add").onclick=add;$("add2").onclick=add;$("buy").onclick=buy;$("buy2").onclick=buy;
+$("wish").onclick=function(){var w=this;w.textContent=w.textContent=="\u2661"?"\u2665":"\u2661"};
+var end=Date.now()+2*3600e3+57*60e3;function tick(){var t=Math.max(0,end-Date.now())/1000|0;$("tm").textContent=[t/3600|0,(t%3600)/60|0,t%60].map(function(v){return String(v).padStart(2,"0")}).join(":");$("cut").textContent=(t/3600|0)+"h "+((t%3600)/60|0)+"m"}tick();setInterval(tick,1000);
+var links=document.querySelectorAll("#tabs a");if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+e.target.id)})}})},{rootMargin:"-30% 0px -60% 0px"});links.forEach(function(a){var s=document.querySelector(a.getAttribute("href"));if(s)io.observe(s)})}
+</script>
+</body>
+</html>

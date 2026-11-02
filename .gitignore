@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+.turbo/
+.vercel/
+*.tsbuildinfo
+
+.env*
+!.env.example
+
+.vscode/
+/backup/
+/CV.HTML
+/my-updated cv.pdf
